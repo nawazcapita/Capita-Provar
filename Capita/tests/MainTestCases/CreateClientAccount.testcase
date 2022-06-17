@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="16">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="14" title="Salesforce Connect: MisterSales (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">MisterSales</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">MisterSales</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">CPI_Global_Template</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="9" title="TestData">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">TestData</value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="AccountFields" variableScope="Test">
+          <cacheToken>C:/Users/namarata.sharma/Provar/Capita/Capita/templates/TestData.xlsx;1655097790647</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="InternalAccount"/>
+            <apiParam name="Sector"/>
+            <apiParam name="Industry"/>
+            <apiParam name="Website"/>
+            <apiParam name="Address"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/TestData.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">CreateClientAccount</worksheetName>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="hidden" testItemId="74">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="75" title="Set Values: AccountName">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">AccountName</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <value valueClass="string">ProvarAcc_</value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">6</value>
+                              </argument>
+                            </funcCall>
+                          </parts>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="12" title="For Each: {AccountFields}=&gt;CurrentAccount">
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="AccountFields"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">CurrentAccount</value>
+        </argument>
+        <argument id="continueOnFailure"/>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="13">
+          <steps>
+            <caseCall testCaseId="38ef3c68-015d-443d-979f-70f874ea51bd" testCasePath="tests/CallableTestCase/CreateClientAccount_Callable.testcase" testItemId="8">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">MisterSales</value>
+                </argument>
+                <argument id="InInternalAccount">
+                  <value class="variable">
+                    <path element="CurrentAccount"/>
+                    <path element="InternalAccount"/>
+                  </value>
+                </argument>
+                <argument id="InSector">
+                  <value class="variable">
+                    <path element="CurrentAccount"/>
+                    <path element="Sector"/>
+                  </value>
+                </argument>
+                <argument id="InAddress">
+                  <value class="variable">
+                    <path element="CurrentAccount"/>
+                    <path element="Address"/>
+                  </value>
+                </argument>
+                <argument id="InWebsite">
+                  <value class="variable">
+                    <path element="CurrentAccount"/>
+                    <path element="Website"/>
+                  </value>
+                </argument>
+                <argument id="InIndustry">
+                  <value class="variable">
+                    <path element="CurrentAccount"/>
+                    <path element="Industry"/>
+                  </value>
+                </argument>
+                <argument id="IPInternalAccount">
+                  <value class="variable">
+                    <path element="CurrentAccount"/>
+                    <path element="InternalAccount"/>
+                  </value>
+                </argument>
+                <argument id="IPSector">
+                  <value class="variable">
+                    <path element="CurrentAccount"/>
+                    <path element="Sector"/>
+                  </value>
+                </argument>
+                <argument id="IPAddress">
+                  <value class="variable">
+                    <path element="CurrentAccount"/>
+                    <path element="Address"/>
+                  </value>
+                </argument>
+                <argument id="IPWebsite">
+                  <value class="variable">
+                    <path element="CurrentAccount"/>
+                    <path element="Website"/>
+                  </value>
+                </argument>
+                <argument id="IPIndustry">
+                  <value class="variable">
+                    <path element="CurrentAccount"/>
+                    <path element="Industry"/>
+                  </value>
+                </argument>
+                <argument id="IPAccountName">
+                  <value class="variable">
+                    <path element="AccountName"/>
+                  </value>
+                </argument>
+                <argument id="IPVerifyErrorMsgForAccountnameInternalaccountAndSector">
+                  <value class="variable">
+                    <path element="CurrentAccount"/>
+                    <path element="VerifyErrorMsgForAccountnameInternalaccountAndSector"/>
+                  </value>
+                </argument>
+                <argument id="IPVerifyErrorMsgForWebsiteIndustryAndAddress">
+                  <value class="variable">
+                    <path element="CurrentAccount"/>
+                    <path element="VerifyErrorMsgForWebsiteIndustryAndAddress"/>
+                  </value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="OpAccountId">
+                  <name class="value" valueClass="string">OpAccountId</name>
+                </outputArgument>
+                <outputArgument id="OPAccountId">
+                  <name class="value" valueClass="string">OPAccountId</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+  <outputParams/>
+  <outputArgs>
+    <outputArgument id="ApexConnection" scope="Global">
+      <name class="value" valueClass="string">ApexConnection</name>
+    </outputArgument>
+  </outputArgs>
+</testCase>

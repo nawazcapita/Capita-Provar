@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="1280x800" selectedBrowserProviderName="Desktop">
+  <title>/Capita/.testproject</title>
+  <configPath>config</configPath>
+  <testsPath>tests</testsPath>
+  <testPlansPath>plans</testPlansPath>
+  <templatesPath>templates</templatesPath>
+  <sourcePath>src</sourcePath>
+  <secureStoragePath>.secrets</secureStoragePath>
+  <browserDebugPort>0</browserDebugPort>
+  <variables/>
+  <connectionClasses>
+    <connectionClass name="sf">
+      <connections>
+        <connection id="ba106144-7c51-47b7-8a82-d227bda2d8f8" name="Admin">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="61768b71-0fd3-44bf-b510-d2d39fefb747" url="sf:user=admin_provar@capita.com;password={password};securityToken={securityToken};environment=SANDBOX;lightningMode=true"/>
+          </connectionUrls>
+        </connection>
+        <connection id="08270795-b58f-4c8d-89d9-df7f98b14cdd" name="MisterSales">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl url="sf:user=mistersales@capita.prod.qa;environment=PROD_DEV;metadataConnection=Admin;logonAsConnection=Admin;lightningMode=true"/>
+          </connectionUrls>
+        </connection>
+        <connection id="99642246-7ab3-456e-a81a-e325f5fa42ca" name="GrowthOps">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl url="sf:user=growthops@productiontest.com.qa;environment=PROD_DEV;logonAsConnection=Admin;lightningMode=true"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+  </connectionClasses>
+  <browserConfigurations>
+    <browserConfiguration adjustBrowserWidthForChromeIde="true" browserHeight="0" browserWidth="0" name="Full Screen">
+      <summary>Full screen with Test Builder adjustment</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="768" browserHeightType="Pixels" browserWidth="1024" browserWidthType="Pixels" name="1024x768">
+      <summary>Fixed 1024x768</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="800" browserHeightType="Pixels" browserWidth="1280" browserWidthType="Pixels" name="1280x800">
+      <summary>Fixed 1280x800</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="768" browserHeightType="Pixels" browserWidth="1366" browserWidthType="Pixels" name="1366x768">
+      <summary>Fixed 1366x768</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="1080" browserHeightType="Pixels" browserWidth="1920" browserWidthType="Pixels" name="1920x1080">
+      <summary>Fixed 1920x1080</summary>
+    </browserConfiguration>
+  </browserConfigurations>
+  <browserApplications>
+    <browserApplication connectionTypes="sf" name="Salesforce1">
+      <properties>
+        <browserPlatformProperty name="browserName" platform="IOS" type="DesiredCapability" value="Safari"/>
+        <browserPlatformProperty name="browserName" platform="ANDROID" type="DesiredCapability" value="Chrome"/>
+      </properties>
+    </browserApplication>
+    <browserApplication connectionTypes="sf" name="ServiceMax FSA">
+      <properties>
+        <browserPlatformProperty name="bundleId" platform="IOS" type="DesiredCapability" value="com.servicemaxinc.svmxfieldserviceapp"/>
+        <browserPlatformProperty name="app" platform="DESKTOP" type="DesiredCapability" value="C:\\Program Files\\ServiceMax\\ServiceMax Field Service\\Laptop Mobile.exe"/>
+      </properties>
+    </browserApplication>
+  </browserApplications>
+  <browserProviders>
+    <browserProvider name="Desktop" type="SeleniumLocal">
+      <devices>
+        <browserProviderDevice name="Full Screen">
+          <properties>
+            <browserPlatformProperty name="summary" value="Full screen with Test Builder adjustment"/>
+            <browserPlatformProperty name="browserHeightType" value="Full"/>
+            <browserPlatformProperty name="browserWidthType" value="Full"/>
+            <browserPlatformProperty name="adjustBrowserWidthForChromeIde" value="true"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1024x768">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1024x768"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="768"/>
+            <browserPlatformProperty name="browserWidth" value="1024"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1280x800">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1280x800"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="800"/>
+            <browserPlatformProperty name="browserWidth" value="1280"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1366x768">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1366x768"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="768"/>
+            <browserPlatformProperty name="browserWidth" value="1366"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1920x1080">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1920x1080"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="1080"/>
+            <browserPlatformProperty name="browserWidth" value="1920"/>
+          </properties>
+        </browserProviderDevice>
+      </devices>
+    </browserProvider>
+  </browserProviders>
+</testProject>

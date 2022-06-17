@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="0">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="7" title="Salesforce Connect: MisterSales (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">MisterSales</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">MisterSales</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">CPI_Global_Template</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="15" title="Salesforce Connect: GrowthOps (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">GrowthOps</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">GrowthOps</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">CPI_Global_Template</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="8" title="TestData">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">TestData</value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="Fields" variableScope="Test">
+          <cacheToken>C:/Users/namarata.sharma/Provar/Capita/Capita/templates/TestData.xlsx;1655099605268</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="Sector"/>
+            <apiParam name="InternalAccount"/>
+            <apiParam name="Industry"/>
+            <apiParam name="Website"/>
+            <apiParam name="Address"/>
+            <apiParam name="Description"/>
+            <apiParam name="Status"/>
+            <apiParam name="CaseResolution"/>
+            <apiParam name="VerificationStatus"/>
+            <apiParam name="AccountType"/>
+            <apiParam name="SAPCustomerID"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/TestData.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">AccountCreationAndVerification</worksheetName>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="hidden" testItemId="9">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="20" title="Set Values: AccountName">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">AccountName</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <value valueClass="string">ProvarAcc_</value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">8</value>
+                              </argument>
+                            </funcCall>
+                          </parts>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="12" title="CreateAndVerifyAccount">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">CreateAndVerifyAccount</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="13">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="10" title="For Each: {Fields}=&gt;CurrentLineItem">
+              <arguments>
+                <argument id="list">
+                  <value class="variable">
+                    <path element="Fields"/>
+                  </value>
+                </argument>
+                <argument id="fromItem">
+                  <value class="value" valueClass="decimal">1</value>
+                </argument>
+                <argument id="valueName">
+                  <value class="value" valueClass="string">CurrentLineItem</value>
+                </argument>
+                <argument id="continueOnFailure"/>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="11">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="16" title="CreateAccount">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">CreateAccount</value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="hidden" testItemId="17">
+                          <steps>
+                            <caseCall testCaseId="38ef3c68-015d-443d-979f-70f874ea51bd" testCasePath="tests/CallableTestCase/CreateClientAccount_Callable.testcase" testItemId="4">
+                              <arguments>
+                                <argument id="reuseConnectionName">
+                                  <value class="value" valueClass="string">MisterSales</value>
+                                </argument>
+                                <argument id="InInternalAccount">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="InternalAccount"/>
+                                  </value>
+                                </argument>
+                                <argument id="InSector">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="Sector"/>
+                                  </value>
+                                </argument>
+                                <argument id="InAddress">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="Address"/>
+                                  </value>
+                                </argument>
+                                <argument id="InWebsite">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="Website"/>
+                                  </value>
+                                </argument>
+                                <argument id="InIndustry">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="Industry"/>
+                                  </value>
+                                </argument>
+                                <argument id="IPInternalAccount">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="InternalAccount"/>
+                                  </value>
+                                </argument>
+                                <argument id="IPSector">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="Sector"/>
+                                  </value>
+                                </argument>
+                                <argument id="IPAddress">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="Address"/>
+                                  </value>
+                                </argument>
+                                <argument id="IPWebsite">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="Website"/>
+                                  </value>
+                                </argument>
+                                <argument id="IPIndustry">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="Industry"/>
+                                  </value>
+                                </argument>
+                                <argument id="IPAccountName">
+                                  <value class="variable">
+                                    <path element="AccountName"/>
+                                  </value>
+                                </argument>
+                                <argument id="IPVerifyErrorMsgForAccountnameInternalaccountAndSector">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="VerifyErrorMsgForAccountnameInternalaccountAndSector"/>
+                                  </value>
+                                </argument>
+                                <argument id="IPVerifyErrorMsgForWebsiteIndustryAndAddress">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="VerifyErrorMsgForWebsiteIndustryAndAddress"/>
+                                  </value>
+                                </argument>
+                              </arguments>
+                              <outputArguments>
+                                <outputArgument id="OpAccountId">
+                                  <name class="value" valueClass="string">OpAccountId</name>
+                                </outputArgument>
+                                <outputArgument id="OPAccountId">
+                                  <name class="value" valueClass="string">OPAccountId</name>
+                                </outputArgument>
+                              </outputArguments>
+                            </caseCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="18" title="VerifyAccount">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">VerifyAccount</value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="hidden" testItemId="19">
+                          <steps>
+                            <caseCall testCaseId="f2b13131-d015-41b5-985a-0f46dff706fa" testCasePath="tests/CallableTestCase/Account Verification_Callable.testcase" testItemId="21">
+                              <arguments>
+                                <argument id="IPAccount">
+                                  <value class="variable">
+                                    <path element="OPAccountId"/>
+                                  </value>
+                                </argument>
+                                <argument id="reuseConnectionName">
+                                  <value class="value" valueClass="string">MisterSales</value>
+                                </argument>
+                                <argument id="IPDescription">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="Description"/>
+                                  </value>
+                                </argument>
+                                <argument id="IPStatus">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="Status"/>
+                                  </value>
+                                </argument>
+                                <argument id="IPCaseResolution">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="CaseResolution"/>
+                                  </value>
+                                </argument>
+                                <argument id="IPVerificationStatus">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="AccountType"/>
+                                  </value>
+                                </argument>
+                                <argument id="IPAccountType">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="AccountType"/>
+                                  </value>
+                                </argument>
+                                <argument id="IPSAPCustomerID">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="SAPCustomerID"/>
+                                  </value>
+                                </argument>
+                                <argument id="OverrideConnectionGrowthOps">
+                                  <value class="value" valueClass="string">GrowthOps</value>
+                                </argument>
+                                <argument id="IPErrorMessageForDescription">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="ErrorMessagesForDescription"/>
+                                  </value>
+                                </argument>
+                                <argument id="IPErrorMessageForSAPId">
+                                  <value class="variable">
+                                    <path element="CurrentLineItem"/>
+                                    <path element="ErrorMessagesForAccountTypeSAPCustomerID"/>
+                                  </value>
+                                </argument>
+                              </arguments>
+                            </caseCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+  <tags/>
+</testCase>
